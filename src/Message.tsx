@@ -1,7 +1,8 @@
 function Message() {
-  const name = "Anass";
-  if (name) return <h1>Hello {name}</h1>;
-  return <h1>Hello Guest</h1>;
+  let count = 0;
+  count++;
+  console.log(`Testing Message Component ${count}`);
+  return <h1>Message {count}</h1>;
 }
 
 export default Message;

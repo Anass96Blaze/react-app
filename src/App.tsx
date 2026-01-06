@@ -1,74 +1,59 @@
+// import Message from "./Message";
 import { useState } from "react";
-import Like from "./components/Like";
-
-// import Alert from "./components/Alert";
-// import Button from "./components/Button/";
-// import ListGroup from "./components/ListGroup/";
-// import { BsFillCalendarFill } from "react-icons/bs";
 
 function App() {
-  const [isLiked, setIsLiked] = useState(false);
+  // const [tags, setTags] = useState(["happy", "cheerful"]);
 
-  const handleToggle = () => setIsLiked(!isLiked);
+  // const addClick = () => {
+  //   // Add
+  //   setTags([...tags, "exciting"]);
+  // };
 
-  console.log("Parent Anass");
+  // const updateClick = () => {
+  //   // Update
+  //   setTags(tags.map((tag) => (tag === "cheerful" ? "Happy Anass" : tag)));
+  // };
+
+  // const removeClick = () => {
+  //   // Remove
+  //   setTags(tags.filter((tag) => tag !== "happy"));
+  // };
+
+  const [bugs, setBugs] = useState([
+    { title: "Bug1", isFixed: false },
+    { title: "Bug2", isFixed: false },
+  ]);
+
+  // Update
+  const handleClick = () => {
+    setBugs(
+      bugs.map((bug) =>
+        bug.title === "Bug1" ? { ...bug, isFixed: true } : bug
+      )
+    );
+  };
 
   return (
-    <>
-      <Like isLiked={isLiked} onToggle={handleToggle} />
-    </>
+    <div>
+      {/* <ul>
+        {tags.map((tag, index) => (
+          <li key={index}>{tag}</li>
+        ))}
+      </ul>
+      <button onClick={addClick}>Add</button>
+      <button onClick={updateClick}>Update</button>
+      <button onClick={removeClick}>Remove</button> */}
+
+      <ul>
+        {bugs.map((bug, index) => (
+          <li
+            key={index}
+          >{`The name bug is ${bug.title} the status is ${bug.isFixed}`}</li>
+        ))}
+      </ul>
+      <button onClick={handleClick}>Click Me</button>
+    </div>
   );
 }
 
 export default App;
-
-// let items = ["Casablanca", "Berkane", "Oujda", "Tanger", "Asila"];
-
-// const handelSelectedItem = (item: string) => {
-//   console.log(item);
-// };
-
-// const [alertVisible, setAlertVisible] = useState(false);
-
-// return (
-//   <div>
-//     {alertVisible ? (
-//       <Alert
-//         onColseClick={() => {
-//           setAlertVisible(false);
-//         }}
-//       >
-//         My <span>Alert</span>
-//       </Alert>
-//     ) : null}
-
-//     <Button
-//       color="primary"
-//       onClickButton={() => {
-//         setAlertVisible(true);
-//       }}
-//     >
-//       primary
-//     </Button>
-//   </div>
-// );
-
-// return (
-//   <ListGroup
-//     items={items}
-//     heading="Cities"
-//     onSelectedItem={handelSelectedItem}
-//   />
-// );
-
-// return (
-//   <div>
-//     <Button
-//       onClickButton={() => {
-//         console.log("Test");
-//       }}
-//     >
-//       My Button
-//     </Button>
-//   </div>
-// );
